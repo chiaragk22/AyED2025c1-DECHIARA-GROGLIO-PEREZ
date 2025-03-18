@@ -37,6 +37,13 @@ class Piramide:
 
 
 
+# ↓ Solución ↓
+
+
+
+
+
+
 
 
 
