@@ -43,7 +43,7 @@ class TestCuadrado(unittest.TestCase):
         # Prueba el setter del atributo 'lado' con un valor inválido (negativo).
         c = Cuadrado(2)
         with self.assertRaises(ValueError):
-            c.set_lado(-5)
+            c.lado = -5
         # Verifica que se lance un ValueError al intentar asignar un valor negativo.
 
 if __name__ == "__main__":

@@ -25,6 +25,20 @@ class TestCilindro(unittest.TestCase):
         with self.assertRaises(ValueError):
             Cilindro(radio=3, altura=-2)
 
+    def test_setear_radio_invalido(self):
+        # Prueba el setter del atributo 'radio' con un valor inválido (negativo).
+        cilindro = Cilindro(radio=3, altura=5)
+        with self.assertRaises(ValueError):
+            cilindro.radio = -2
+        # Verifica que se lance un ValueError al intentar asignar un valor negativo al radio.
+
+    def test_setear_altura_invalida(self):
+        # Prueba el setter del atributo 'altura' con un valor inválido (negativo).
+        cilindro = Cilindro(radio=3, altura=5)
+        with self.assertRaises(ValueError):
+            cilindro.altura = -3
+        # Verifica que se lance un ValueError al intentar asignar un valor negativo a la altura.
+
     def test_volumen(self):
         # Prueba el cálculo del volumen del cilindro.
         cilindro = Cilindro(radio=3, altura=5)

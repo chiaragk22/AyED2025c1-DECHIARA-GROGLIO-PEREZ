@@ -9,14 +9,20 @@ class Cuadrado:
         # Si el lado es menor o igual a 0, lanza una excepción ValueError.
         if lado <= 0:
             raise ValueError("El lado debe ser positivo")
-        self.lado = lado  # Asigna el valor del lado al atributo de la instancia.
+        self.__lado = lado  # Asigna el valor del lado al atributo de la instancia.
 
-    def set_lado(self, nuevo_lado):
-        # Método para actualizar el valor del lado del cuadrado.
+    @property
+    def lado(self):
+        # Método getter para el atributo 'lado'.
+        return self.__lado
+    
+    @lado.setter
+    def lado(self, nuevo_lado):
+        # Método setter para el atributo 'lado'.
         # Si el nuevo lado es menor o igual a 0, lanza una excepción ValueError.
         if nuevo_lado <= 0:
             raise ValueError("El lado debe ser positivo")
-        self.lado = nuevo_lado  # Actualiza el atributo 'lado' con el nuevo valor.
+        self.__lado = nuevo_lado  # Actualiza el atributo 'lado' con el nuevo valor.
 
     def area(self):
         # Calcula y devuelve el área del cuadrado (lado^2).
@@ -26,22 +32,22 @@ class Cuadrado:
         # Calcula y devuelve el perímetro del cuadrado (4 * lado).
         return 4 * self.lado
     
-cuadrado1 = Cuadrado(5) # crea un cuadrado de lado 5
-print(cuadrado1.area()) # lado al cuadrado
-print(cuadrado1.perimetro()) # lado * 4
-cuadrado1.set_lado(10) # cambia el lado a 10
-print(cuadrado1.area()) # lado al cuadrado
-print(cuadrado1.perimetro()) # lado * 4
-cuadrado1.set_lado(-5) # lanza una excepción
-cuadrado2 = Cuadrado(-5) # lanza una excepción
+# cuadrado1 = Cuadrado(5) # crea un cuadrado de lado 5
+# print(cuadrado1.area()) # lado al cuadrado
+# print(cuadrado1.perimetro()) # lado * 4
+# cuadrado1.lado = 10 # cambia el lado a 10
+# print(cuadrado1.area()) # lado al cuadrado
+# print(cuadrado1.perimetro()) # lado * 4
+# cuadrado1.lado = -5 # lanza una excepción
+# cuadrado2 = Cuadrado(-5) # lanza una excepción
 
 # if __name__ == "__main__":
 
 #     cuadrado1 = Cuadrado(5) # crea un cuadrado de lado 5
 #     print(cuadrado1.area()) # lado al cuadrado
 #     print(cuadrado1.perimetro()) # lado * 4
-#     cuadrado1.set_lado(10) # cambia el lado a 10
+#     cuadrado1.lado = 10 # cambia el lado a 10
 #     print(cuadrado1.area()) # lado al cuadrado
 #     print(cuadrado1.perimetro()) # lado * 4
-#     cuadrado1.set_lado(-5) # lanza una excepción
+#     cuadrado1.lado = -5 # lanza una excepción
 #     cuadrado2 = Cuadrado(-5) # lanza una excepción

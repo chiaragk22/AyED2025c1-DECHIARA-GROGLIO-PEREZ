@@ -15,6 +15,16 @@ class TestPiramide(unittest.TestCase):
     def test_altura_negativa_error(self):
         with self.assertRaises(ValueError):
             Piramide(base_longitud=3, altura=-4)
+
+    def test_setear_base_longitud_invalido(self):
+        piramide = Piramide(base_longitud=3, altura=5)
+        with self.assertRaises(ValueError):
+            piramide.base_longitud = -2
+
+    def test_setear_altura_invalida(self):
+        piramide = Piramide(base_longitud=3, altura=5)
+        with self.assertRaises(ValueError):
+            piramide.altura = -5
     
     def test_volumen(self):
         piramide = Piramide(base_longitud=5, altura=10)
