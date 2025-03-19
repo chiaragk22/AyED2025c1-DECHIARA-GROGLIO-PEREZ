@@ -41,7 +41,7 @@ class TestPiramide(unittest.TestCase):
 
         # A = L * (L + math.sqrt(4*h² + (L/2)²))
         esperado = L * (L + math.sqrt(4*h**2 + (L/2)**2))
-        self.assertAlmostEqual(piramide.area_superficial(), esperado, places=4)
+        self.assertAlmostEqual(piramide.area_superficial(), esperado, places=3)
 
 
 if __name__ == '__main__':

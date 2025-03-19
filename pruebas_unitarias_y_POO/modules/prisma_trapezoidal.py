@@ -60,7 +60,7 @@ class PrismaTrapezoidal:
 #         self.altura_prisma = altura_prisma
     
 #     def volumen(self):
-#         return ((self.base_mayor + self.base_menor) / 2 * self.altura_trapecio) * self.altura_prisma
+#         return (((self.base_mayor + self.base_menor) / 2) * self.altura_trapecio) * self.altura_prisma
     
 #     def area_superficial(self):
 #         return (self.base_mayor + self.base_menor) * self.altura_trapecio + (self.base_mayor + self.base_menor + 2 * self.lado) * self.altura_prisma
