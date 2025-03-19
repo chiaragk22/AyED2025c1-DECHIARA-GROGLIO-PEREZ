@@ -46,6 +46,6 @@ class TestCuadrado(unittest.TestCase):
             c.lado = -5
         # Verifica que se lance un ValueError al intentar asignar un valor negativo.
 
-if __name__ == "__main__":
-    unittest.main()
-    # Ejecuta todas las pruebas definidas en la clase TestCuadrado si el archivo se ejecuta directamente.
+
+unittest.main()
+# Ejecuta todas las pruebas definidas en la clase TestCuadrado si el archivo se ejecuta directamente.

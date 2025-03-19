@@ -32,14 +32,22 @@ class Cuadrado:
         # Calcula y devuelve el perímetro del cuadrado (4 * lado).
         return 4 * self.lado
     
-# cuadrado1 = Cuadrado(5) # crea un cuadrado de lado 5
-# print(cuadrado1.area()) # lado al cuadrado
-# print(cuadrado1.perimetro()) # lado * 4
-# cuadrado1.lado = 10 # cambia el lado a 10
-# print(cuadrado1.area()) # lado al cuadrado
-# print(cuadrado1.perimetro()) # lado * 4
-# cuadrado1.lado = -5 # lanza una excepción
+cuadrado1 = Cuadrado(5) # crea un cuadrado de lado 5
+print(cuadrado1.area()) # lado al cuadrado
+print(cuadrado1.perimetro()) # lado * 4
+cuadrado1.lado = 10 # cambia el lado a 10
+print(cuadrado1.area()) # lado al cuadrado
+print(cuadrado1.perimetro()) # lado * 4
+cuadrado1.lado = -5 # lanza una excepción
 # cuadrado2 = Cuadrado(-5) # lanza una excepción
+
+
+
+
+
+
+
+
 
 # if __name__ == "__main__":
 
