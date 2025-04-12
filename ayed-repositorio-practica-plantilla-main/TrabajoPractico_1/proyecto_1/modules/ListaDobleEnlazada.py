@@ -103,3 +103,41 @@ class ListaDobleEnlazada:
                 actual.obtenerAnterior().asignarSiguiente(None)
 
         return actual.obtenerDato()
+    
+    def copiar(self):
+        if self.cabeza is None:
+            return ListaDobleEnlazada(None)
+
+        nueva_lista = ListaDobleEnlazada(None)
+        actual_original = self.cabeza
+
+        nueva_cabeza = Nodo(actual_original.obtenerDato())
+        nueva_lista.cabeza = nueva_cabeza
+        nuevo_actual = nueva_cabeza
+        actual_original = actual_original.obtenerSiguiente()
+
+        while actual_original is not None:
+            nuevo_nodo = Nodo(actual_original.obtenerDato())
+            nuevo_actual.asignarSiguiente(nuevo_nodo)
+            nuevo_nodo.asignarAnterior(nuevo_actual)
+
+            nuevo_actual = nuevo_nodo
+            actual_original = actual_original.obtenerSiguiente()
+
+        return nueva_lista
+    
+    def invertir(self):
+        if self.cabeza is None:
+            return
+
+        actual = self.cabeza
+        anterior = None
+
+        while actual is not None:
+            siguiente = actual.obtenerSiguiente()
+            actual.asignarSiguiente(anterior)
+            actual.asignarAnterior(siguiente)
+            anterior = actual
+            actual = siguiente
+
+        self.cabeza = anterior
