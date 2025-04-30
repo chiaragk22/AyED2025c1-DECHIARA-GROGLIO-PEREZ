@@ -1,0 +1,49 @@
+import time
+import matplotlib.pyplot as plt
+from ListaDobleEnlazada import ListaDobleEnlazada  
+
+
+N_values = []
+tiempos_len = []
+tiempos_copiar = []
+tiempos_invertir = []
+
+for N in range(10, 5001, 500): 
+    lista = ListaDobleEnlazada()
+    
+    
+    for i in range(N):
+        lista.agregar_al_final(i)  
+
+   
+    inicio = time.perf_counter()
+    tamaño = len(lista)  
+    fin = time.perf_counter()
+    tiempos_len.append(fin - inicio)
+
+   
+    inicio = time.perf_counter()
+    copia = lista.copiar()
+    fin = time.perf_counter()
+    tiempos_copiar.append(fin - inicio)
+
+   
+    inicio = time.perf_counter()
+    lista.invertir()
+    fin = time.perf_counter()
+    tiempos_invertir.append(fin - inicio)
+
+    N_values.append(N)
+
+
+
+plt.plot(N_values, tiempos_len, label='len()', marker='o')
+plt.plot(N_values, tiempos_copiar, label='copiar()', marker='o')
+plt.plot(N_values, tiempos_invertir, label='invertir()', marker='o')
+plt.xlabel('Cantidad de elementos (N)')
+plt.ylabel('Tiempo de ejecución (segundos)')
+plt.title('Cantidad de elementos vs Tiempo de ejecución')
+plt.legend()
+plt.grid(True)
+
+plt.show()
