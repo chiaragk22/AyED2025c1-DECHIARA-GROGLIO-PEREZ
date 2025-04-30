@@ -1,0 +1,16 @@
+from modules.Ordenamientos import medir_tiempos
+import matplotlib.pyplot as plt
+
+tam, tiempos_burbuja, tiempos_quicksort, tiempos_redix = medir_tiempos()
+
+
+plt.plot(tam, tiempos_burbuja, label="Burbuja")
+plt.plot(tam, tiempos_quicksort, label="Quicksort")
+plt.plot(tam, tiempos_redix, label="Radix")
+
+plt.xlabel("Tamaño de la lista")
+plt.ylabel("Tiempo de ejecución (segundos)")
+plt.title("Comparación de tiempos de ordenamiento")
+plt.legend()
+plt.grid(True)
+plt.show()
