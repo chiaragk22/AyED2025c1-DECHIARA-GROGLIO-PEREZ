@@ -1,7 +1,8 @@
 import unittest
 import random
 import time
-from proyecto_1.modules.Ordenamientos import ordenamiento_burbuja, ordenamiento_quicksort, ordenar_por_residuos
+from modules.Ordenamientos import ordenamiento_burbuja, ordenamiento_quicksort
+from modules.Ordenamientos import ordenamiento_redix as ordenar_por_residuos
 
 # filepath: proyecto_1/modules/test_Ordenamientos.py
 

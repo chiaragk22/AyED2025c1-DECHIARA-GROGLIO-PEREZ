@@ -1,6 +1,6 @@
 import random
 import time
-import matplotlib
+
 import matplotlib.pyplot as plt
 
 
