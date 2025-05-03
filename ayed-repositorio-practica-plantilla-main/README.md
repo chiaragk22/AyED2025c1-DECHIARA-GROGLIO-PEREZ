@@ -1,11 +1,8 @@
-# Repositorio de práctica de Algoritmos y Estructuras de Datos
+# Trabajo Práctico Nº1
 
-Repositorio inicial para las clases de práctica de Algoritmos y Estructuras de Datos. En este repositorio se almacenarán los códigos de los trabajos prácticos presentados durante el cursado
+Primer trabajo práctico de la asignatura <Algoritmos y Estructuras de Datos>.
+Este trabajo práctico consta de los siguientes N proyectos:
+  - `actividad_1`
+  - `actividad_2`
+  - `actividad_3`
 
-## Integrantes del grupo:
-    - Carolina Belén Pérez
-    - Chiara Groglio Kremer
-    - Ignacio Dechiara
-
-## Cuatrimestre de cursado:
-    1er/2do cuatrimestre del 20xx
