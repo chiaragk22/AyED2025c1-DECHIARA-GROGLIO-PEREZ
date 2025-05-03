@@ -19,14 +19,14 @@ El proyecto está dividido en tres carpetas
 principales: problema1, problema2, y
 problema3.
 
-- problema1/: contiene implementaciones de
+- actividad_1/: contiene implementaciones de
 los algoritmos de ordenamiento, scripts de
 medición de tiempos y generación de gráficas.
-- problema2/: implementa la clase
+- actividad_2/: implementa la clase
 ListaDobleEnlazada con los métodos
 especificados en el enunciado y scripts de
 prueba y análisis de rendimiento.
-- problema3/: contiene la implementación del 
+- actividad_3/: contiene la implementación del 
 juego “Guerra” basado en una clase Mazo, que
 utiliza la ListaDobleEnlazada. Incluye las
 pruebas unitarias necesarias.
