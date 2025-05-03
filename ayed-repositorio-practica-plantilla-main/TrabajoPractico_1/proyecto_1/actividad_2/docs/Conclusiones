@@ -1,0 +1,27 @@
+●	Problema 2 – ListaDobleEnlazada
+Análisis de eficiencia de los métodos len, copiar, invertir: (ver tabla en data)
+ 
+Análisis de eficiencia de los métodos len, copiar, invertir:
+Len(): En el método len lo que se esperaba era una eficiencia de O(1) (tiempo constante) y el comportamiento observado fueron
+tiempos de ejecución fueron extremadamente bajos y prácticamente constantes, independientemente del tamaño de la lista. El método
+simplemente retorna el valor del atributo self.tamanio, que se actualiza con cada inserción o eliminación. No se recorre la
+lista. En conclusión es muy eficiente y adecuado para las listas grandes.
+
+Copiar(): La eficiencia esperada era de O(n) (tiempo lineal con respecto al tamaño de la lista) y el comportamiento observado de
+ejecución creció proporcionalmente al número de elementos. Se recorre nodo por nodo de la lista original, creando nuevos nodos y
+enlazándolos para formar una copia independiente. En conclusión es un comportamiento esperado, es razonablemente eficiente,
+aunque se vuelve más costoso para listas grandes, por esa razón observamos un "pico" en la gráfica. Para listas con valores cercanos a 2500 elementos, el método toma mas tiempo en ejecutarse por lo que es uno de los peores casos.
+
+Invertir(): La eficiencia esperada era de O(n) (tiempo lineal) y el comportamiento observado de ejecución también lineal, similar 
+al de copiar(). Se recorren todos los nodos para intercambiar sus punteros siguiente y anterior. La operación no crea nuevos
+nodos, solo reorganiza enlaces. En conclusión es  muy eficiente para inversión in-place. Adecuada para grandes volúmenes de datos.
+
+
+Conclusión sobre diseño de la estructura:
+La estructura ListaDobleEnlazada presenta un diseño sólido y funcional, con claras ventajas como la capacidad de recorrer la
+lista en ambos sentidos gracias a sus referencias dobles, y una alta eficiencia en las operaciones de inserción y extracción
+tanto al inicio como al final de la lista, las cuales se realizan en tiempo constante. La implementación es modular, con métodos
+bien definidos y reutilización efectiva de nodos, lo que contribuye a su rendimiento general. Sin embargo, podrían introducirse
+mejoras que harían la estructura más completa, como un manejo más detallado de errores en métodos como insertar y extraer, y la
+inclusión de un iterador inverso (__reversed__). También sería útil incorporar una función para eliminar nodos por valor y
+agregar documentación breve en los métodos para facilitar la comprensión y el mantenimiento del código.

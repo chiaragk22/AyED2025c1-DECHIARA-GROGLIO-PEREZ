@@ -1,0 +1,30 @@
+●	Problema 1 – Ordenamiento - CONCLUSION
+Complejidad esperada de cada algoritmo:
+Bubble Sort: En el bubble sort se espera un orden de complejidad O(n) en el mejor de los casos, que sería cuando la lista esté
+completamente ordenada, y en el peor de los casos un orden de complejidad O(n^2) que se daría si la lista está completamente
+invertida.
+Quicksort: En el mejor caso de un ordenamiento quicksort  es O(nlogn) y se daría si el pivote divide el arreglo en dos mitades
+casi iguales, y en el peor de los casos O(n^2) que se da cuando el pivote es siempre el mínimo o máximo valor.
+Radix Sort: Y en el caso del radix sort su orden de complejidad va a ser siempre O(n-k), ya que este no depende del orden
+original de los datos, sino de la cantidad de dígitos k de los números.
+Análisis a partir de las gráficas de tiempos de ejecución (ver tabla en la carpeta data)
+ 
+Conclusiones sobre la eficiencia de los algoritmos de ordenamiento:
+Radix Sort fue el algoritmo más eficiente a lo largo de todo el rango de tamaños de listas evaluado (1 a 1000 elementos). Su
+tiempo de ejecución se mantuvo prácticamente constante, lo cual es coherente con su eficiencia de tipo O(nk), especialmente
+adecuada para listas de enteros.
+Quicksort mostró un rendimiento muy bueno y estable, con tiempos de ejecución bajos y con poca variación, especialmente en
+comparación con Burbuja. Este comportamiento se ajusta a su complejidad promedio de O(nlogn), lo que lo convierte en una }
+excelente opción general.
+Burbuja, por otro lado, fue el algoritmo menos eficiente. Su tiempo de ejecución creció rápidamente a medida que aumentaba el
+tamaño de la lista, presentando además mucha variabilidad. Esto es característico de su complejidad O(n2), haciéndolo inadecuado
+para listas grandes.
+
+¿Cómo funciona sorted en Python y qué algoritmo utiliza?
+La función sorted() de Python utiliza internamente el algoritmo Timsort, una combinación optimizada de Merge Sort e Insertion
+Sort. Este algoritmo detecta automáticamente subsecuencias ya ordenadas (runs), las ordena con Insertion Sort si son pequeñas y
+luego las fusiona eficientemente con Merge Sort.
+Timsort es un algoritmo estable, muy eficiente en la práctica, y su rendimiento es en el mejor caso: O(n) (si la lista ya está
+parcialmente ordenada); promedio y peor caso: O(n log n).
+Es más rápido y confiable que algoritmos como Bubble Sort o incluso Quicksort en ciertos casos, y por eso se usa como estándar en
+Python.
