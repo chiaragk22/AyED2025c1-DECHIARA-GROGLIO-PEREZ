@@ -9,7 +9,7 @@ El objetivo del trabajo es comparar los tiempos de ejecución y complejidad entr
 
 # Estructura general del código:
 
-El proyecto está dividido en tres carpetas principales: actividad_1, actividad_2, y actividad_3.
+El trabajo práctico está dividido en tres carpetas principales: actividad_1, actividad_2, y actividad_3.
 
 - actividad_1/: contiene implementaciones de los algoritmos de ordenamiento, scripts de medición de tiempos y generación de gráficas.
 - actividad_2/: implementa la clase ListaDobleEnlazada con los métodos especificados en el enunciado y scripts de prueba y análisis de rendimiento.
