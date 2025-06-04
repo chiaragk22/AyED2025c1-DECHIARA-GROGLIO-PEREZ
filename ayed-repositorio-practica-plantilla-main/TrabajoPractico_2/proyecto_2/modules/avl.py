@@ -1,6 +1,5 @@
 # TP2_TemperaturasDB/avl.py
 
-from datetime import date
 
 class NodoAVL:
     """

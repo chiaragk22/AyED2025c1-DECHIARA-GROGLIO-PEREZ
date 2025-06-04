@@ -1,7 +1,7 @@
 # TP2_TemperaturasDB/temperaturas_db.py
 
 from datetime import datetime
-from avl import AVLTree
+from modules.avl import AVLTree
 
 class Temperaturas_DB:
     """
