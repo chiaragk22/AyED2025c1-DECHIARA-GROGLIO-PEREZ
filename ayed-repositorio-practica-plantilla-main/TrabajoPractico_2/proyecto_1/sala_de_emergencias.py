@@ -1,11 +1,11 @@
 import time
 import datetime
-import pacientes as p
-from ColaPrioridad import ColaPrioridad
+import modules.pacientes as p
+from modules.ColaPrioridad import ColaPrioridad
 import random
 
-n_ciclos= 10   # cantidad de ciclos de simulación
-lista_de_espera = ColaPrioridad()
+n_ciclos = 20   # cantidad de ciclos de simulación
+lista_de_espera = ColaPrioridad(obtener_prioridad=lambda paciente: paciente.get_riesgo())
 
 
 # Ciclo que gestiona la simulación
