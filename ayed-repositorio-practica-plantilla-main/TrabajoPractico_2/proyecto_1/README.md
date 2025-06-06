@@ -18,8 +18,3 @@ Modulos: (carpeta modules)
   
 - Informe en la carpeta "docs"
 
-## Autores:
- 
-- Carolina Belén Pérez
-- Chiara Groglio Kremer
-- Ignacio Dechiara
