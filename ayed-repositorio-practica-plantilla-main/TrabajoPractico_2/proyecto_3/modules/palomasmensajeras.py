@@ -99,10 +99,10 @@ def main():
     orden = sorted(aldeas)
     print("1) Lista de aldeas en orden alfabético:")
     for a in orden:
-        print("   -", a)
+        print(f"   - {a}")
     print()
 
-    # 3) Dijkstra desde "Peligros"
+    # 3) Ejecutar Dijkstra desde "Peligros"
     origen = "Peligros"
     if origen not in graf:
         raise ValueError(f"'{origen}' no está en el grafo")
@@ -110,20 +110,56 @@ def main():
     dist, pred = dijkstra_con_predecesor(graf, origen)
     hijos, arbol = construir_arbol_desde_predecesor(pred)
 
-    # 4) Mostrar árbol de envío más eficiente
-    print("2) Árbol de envío más eficiente (recibe de → envía a):")
-    for a in orden:
-        if a == origen:
-            recibido = "(origen)"
+    # 4) Mostrar la información de transmisión por aldea
+    print("2) Rutas de transmisión de noticias:")
+    for aldea in orden:
+        if aldea == origen:
+            recibida_de = "(origen)"
         else:
-            recibido = pred[a] if pred[a] is not None else "(no llega)"
-        emisor = hijos[a]
-        print(f"   - {a}: recibe de → {recibido};  envía a → {emisor}")
+            recibida_de = pred[aldea] if pred[aldea] is not None else "(no llega)"
+
+        envia_a = sorted(hijos[aldea]) if hijos[aldea] else "ninguna"
+
+        print(f"   - {aldea}: recibe de → {recibida_de}; envía a → {envia_a}")
     print()
 
-    # 5) Sumar distancias totales recorridas
+    # 5) Calcular y mostrar la distancia total recorrida
     total_dist = suma_distancias_arbol(graf, arbol)
     print(f"3) Distancia total recorrida por todas las palomas: {total_dist} leguas")
+
+# def main():
+#     # 1) Leer el grafo desde "aldeas.txt"
+#     graf, aldeas = leer_grafo("aldeas.txt")
+
+#     # 2) Mostrar lista de aldeas en orden alfabético
+#     orden = sorted(aldeas)
+#     print("1) Lista de aldeas en orden alfabético:")
+#     for a in orden:
+#         print("   -", a)
+#     print()
+
+#     # 3) Dijkstra desde "Peligros"
+#     origen = "Peligros"
+#     if origen not in graf:
+#         raise ValueError(f"'{origen}' no está en el grafo")
+
+#     dist, pred = dijkstra_con_predecesor(graf, origen)
+#     hijos, arbol = construir_arbol_desde_predecesor(pred)
+
+#     # 4) Mostrar árbol de envío más eficiente
+#     print("2) Árbol de envío más eficiente (recibe de → envía a):")
+#     for a in orden:
+#         if a == origen:
+#             recibido = "(origen)"
+#         else:
+#             recibido = pred[a] if pred[a] is not None else "(no llega)"
+#         emisor = hijos[a]
+#         print(f"   - {a}: recibe de → {recibido};  envía a → {emisor}")
+#     print()
+
+#     # 5) Sumar distancias totales recorridas
+#     total_dist = suma_distancias_arbol(graf, arbol)
+#     print(f"3) Distancia total recorrida por todas las palomas: {total_dist} leguas")
 
 if __name__ == "__main__":
     main()
