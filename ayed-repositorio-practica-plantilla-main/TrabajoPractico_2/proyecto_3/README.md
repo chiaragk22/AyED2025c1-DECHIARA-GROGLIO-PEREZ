@@ -1,9 +1,15 @@
 # Trabajo Práctico N°2: 
 # Actividad 3: Palomas mensajeras
 
-## 1. Estructura de archivos
+## 1. Estructura del proyecto
 
-- **palomasmensajeras.py**  
-  El archivo `palomasmensajeras.py` calcula la forma más eficiente de enviar un mensaje desde la aldea "Peligros" al resto usando rutas mínimas. Muestra qué aldea recibe de cuál, a cuáles debe reenviar el mensaje y la distancia total recorrida. Utiliza el algoritmo de Dijkstra para encontrar los caminos más cortos desde "Peligros" a las demás aldeas y construye un árbol de rutas mínimas a partir de los predecesores calculados.
 - **aldeas_txt**  
-  El archivo aldeas.txt contiene la descripción del mapa de aldeas, con las conexiones entre ellas y sus distancias expresadas en leguas. Se usa como entrada para construir el grafo del problema.
+  El archivo aldeas.txt contiene la descripción del mapa de aldeas, con las conexiones entre ellas y sus distancias
+  expresadas en leguas. Se usa como entrada para construir el grafo del problema.
+
+En la carpeta modules:
+- **grafo.py**: implementación del algoritmo Prim y demás funciones
+- **main.py**: ejecución general del código usando las funciones del archivo grafo.py
+
+En la carpeta docs:
+- **doc_act3.pdf**: contiene un informe detallado de este proyecto

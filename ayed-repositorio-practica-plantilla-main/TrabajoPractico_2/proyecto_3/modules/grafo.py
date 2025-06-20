@@ -40,28 +40,30 @@ def leer_grafo(path_archivo):
 
     return grafo, aldeas
 
-def dijkstra_con_predecesor(grafo, origen):
-    """
-    Dijkstra que devuelve distancias mínimas y predecesor para cada nodo.
-    """
-    dist = { nodo: float('inf') for nodo in grafo }
-    predecesor = { nodo: None for nodo in grafo }
+
+def prim(grafo, origen):
+    visitados = set()
+    heap = []
+    predecesor = {nodo: None for nodo in grafo}
+    dist = {nodo: float('inf') for nodo in grafo}
     dist[origen] = 0
-    heap = [(0, origen)]
+
+    heapq.heappush(heap, (0, origen))
 
     while heap:
-        d_actual, nodo = heapq.heappop(heap)
-        if d_actual > dist[nodo]:
+        costo, nodo = heapq.heappop(heap)
+        if nodo in visitados:
             continue
+        visitados.add(nodo)
 
-        for (vecino, peso) in grafo[nodo]:
-            nueva_d = d_actual + peso
-            if nueva_d < dist[vecino]:
-                dist[vecino] = nueva_d
+        for vecino, peso in grafo[nodo]:
+            if vecino not in visitados and peso < dist[vecino]:
+                dist[vecino] = peso
                 predecesor[vecino] = nodo
-                heapq.heappush(heap, (nueva_d, vecino))
+                heapq.heappush(heap, (peso, vecino))
 
     return dist, predecesor
+
 
 def construir_arbol_desde_predecesor(predecesor):
     """
@@ -91,42 +93,4 @@ def suma_distancias_arbol(grafo, aristas_arbol):
                 break
     return total
 
-def main():
-    # 1) Leer el grafo desde "aldeas.txt"
-    graf, aldeas = leer_grafo("aldeas.txt")
 
-    # 2) Mostrar lista de aldeas en orden alfabético
-    orden = sorted(aldeas)
-    print("1) Lista de aldeas en orden alfabético:")
-    for a in orden:
-        print(f"   - {a}")
-    print()
-
-    # 3) Ejecutar Dijkstra desde "Peligros"
-    origen = "Peligros"
-    if origen not in graf:
-        raise ValueError(f"'{origen}' no está en el grafo")
-
-    dist, pred = dijkstra_con_predecesor(graf, origen)
-    hijos, arbol = construir_arbol_desde_predecesor(pred)
-
-    # 4) Mostrar la información de transmisión por aldea
-    print("2) Rutas de transmisión de noticias:")
-    for aldea in orden:
-        if aldea == origen:
-            recibida_de = "(origen)"
-        else:
-            recibida_de = pred[aldea] if pred[aldea] is not None else "(no llega)"
-
-        envia_a = sorted(hijos[aldea]) if hijos[aldea] else "ninguna"
-
-        print(f"   - {aldea}: recibe de → {recibida_de}; envía a → {envia_a}")
-    print()
-
-    # 5) Calcular y mostrar la distancia total recorrida
-    total_dist = suma_distancias_arbol(graf, arbol)
-    print(f"3) Distancia total recorrida por todas las palomas: {total_dist} leguas")
-
-
-if __name__ == "__main__":
-    main()
