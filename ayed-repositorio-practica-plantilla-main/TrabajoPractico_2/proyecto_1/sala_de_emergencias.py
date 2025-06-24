@@ -5,8 +5,7 @@ from modules.ColaPrioridad import ColaPrioridad
 import random
 
 n_ciclos = 20   # cantidad de ciclos de simulación
-lista_de_espera = ColaPrioridad(obtener_prioridad=lambda paciente: paciente.get_riesgo())
-
+lista_de_espera = ColaPrioridad() 
 
 # Ciclo que gestiona la simulación
 for x in range(n_ciclos):
@@ -16,31 +15,25 @@ for x in range(n_ciclos):
     print('-*-'*15)
     print('\n', fecha_hora, '\n')
 
-    # Se crea un paciente por ciclo
-    # La criticidad del paciente es aleatoria
-    paciente = p.paciente()
+    # Crear paciente con fecha de ingreso explícita
+    paciente = p.paciente(fecha_ingreso=now)
     lista_de_espera.encolar(paciente)
 
     # Atención de paciente en este ciclo: en el 50% de los casos
-    if random.random() < 0.5:
-        # se atiende paciente que se encuentra al frente de la cola
+    if random.random() < 0.5 and not lista_de_espera.esta_vacia():
         paciente_atendido = lista_de_espera.desencolar()
         print('*'*40)
         print('Se atiende el paciente:', paciente_atendido)
         print('*'*40)
-    else:
-        # se continúa atendiendo paciente de ciclo anterior
-        pass
-    
+
     print()
 
     # Se muestran los pacientes restantes en la cola de espera
     print('Pacientes que faltan atenderse:', len(lista_de_espera))
     for paciente in lista_de_espera:
         print('\t', paciente)
-    
+
     print()
     print('-*-'*15)
     
     time.sleep(1)
-
