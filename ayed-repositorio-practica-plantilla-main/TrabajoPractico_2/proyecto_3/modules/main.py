@@ -1,6 +1,4 @@
-
-from modules.grafo import leer_grafo, prim, construir_arbol_desde_predecesor, suma_distancias_arbol
-
+from modules.grafo import leer_grafo, prim_con_monticulo, construir_arbol_desde_predecesor, suma_distancias_arbol
 
 def main():
     # 1) Leer el grafo desde "aldeas.txt"
@@ -18,7 +16,7 @@ def main():
     if origen not in graf:
         raise ValueError(f"'{origen}' no está en el grafo")
 
-    dist, pred = prim(graf, origen)
+    dist, pred = prim_con_monticulo(graf, origen)
     hijos, arbol = construir_arbol_desde_predecesor(pred)
 
     # 4) Mostrar la información de transmisión por aldea

@@ -1,4 +1,4 @@
-import heapq
+from cola_prioridad import ColaPrioridad
 
 def leer_grafo(path_archivo):
     """
@@ -41,18 +41,18 @@ def leer_grafo(path_archivo):
     return grafo, aldeas
 
 
-def prim(grafo, origen):
+def prim_con_monticulo(grafo, origen):
     visitados = set()
-    heap = []
+    cola = ColaPrioridad()
     predecesor = {nodo: None for nodo in grafo}
     dist = {nodo: float('inf') for nodo in grafo}
     dist[origen] = 0
 
-    heapq.heappush(heap, (0, origen))
+    cola.encolar(0, origen)
 
-    while heap:
-        costo, nodo = heapq.heappop(heap)
-        if nodo in visitados:
+    while not cola.esta_vacia():
+        costo, nodo = cola.desencolar()
+        if nodo is None or nodo in visitados:
             continue
         visitados.add(nodo)
 
@@ -60,9 +60,10 @@ def prim(grafo, origen):
             if vecino not in visitados and peso < dist[vecino]:
                 dist[vecino] = peso
                 predecesor[vecino] = nodo
-                heapq.heappush(heap, (peso, vecino))
+                cola.encolar(peso, vecino)
 
     return dist, predecesor
+
 
 
 def construir_arbol_desde_predecesor(predecesor):
